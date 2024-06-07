@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import {Inter, Poppins} from "next/font/google";
 import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   title: "Miguel Lopez",
@@ -21,7 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${popins_init.variable}`}>{children}</body>
+      <body className={`${popins_init.variable}`}>
+        {children}
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
