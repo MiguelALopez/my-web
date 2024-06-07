@@ -1,0 +1,41 @@
+.go-to-next {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  width: 35px;
+  margin: auto;
+  z-index: 1;
+  text-align: center;
+
+  a {
+    width: 35px;
+    height: 35px;
+    position: relative;
+    display: inline-block;
+    background: #ffffff;
+    border-radius: 50%;
+    animation: down 1s linear infinite;
+    -webkit-animation: down 1.5s linear infinite;
+
+    span {
+      border-top: 1px solid #090a0c;
+      border-right: 1px solid #090a0c;
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      top: -6px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      -webkit-transform: rotate(135deg);
+      transform: rotate(135deg);
+    }
+  }
+}
+
+@keyframes down {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(30px); opacity: 0; }
+}
