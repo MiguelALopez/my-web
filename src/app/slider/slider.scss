@@ -1,15 +1,21 @@
-@keyframes slide {
-  from {
-    transform: translatex(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
+$speed: 30s;
 
-.logos {
+.techLogos, .toolLogos {
   position: relative;
 
+  &.techLogos {
+    .slider {
+      animation: $speed slideToLeft infinite linear;
+    }
+  }
+
+  &.toolLogos {
+    .slider {
+      animation: $speed slideToRight infinite linear;
+    }
+  }
+
+  // Fade sections
   &:before, &:after {
     position: absolute;
     top: 0;
@@ -28,9 +34,23 @@
     right: 0;
     background: linear-gradient(to right, rgba(255, 255, 255, 0), black);
   }
+}
 
-  .slider {
-    animation: 30s slide infinite linear;
+// Animations
+@keyframes slideToLeft {
+  from {
+    transform: translatex(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
 
+@keyframes slideToRight {
+  from {
+    transform: translatex(0);
+  }
+  to {
+    transform: translateX(100%);
   }
 }
