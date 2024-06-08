@@ -38,27 +38,30 @@ export default function Slider() {
     SiVercel,
     SiHostinger
   ];
+  const logosClass: string = 'flex flex-row overflow-hidden w-11/12 lg:w-4/5 opacity-10';
+  const sliderClass: string = 'slider flex flex-row';
+
   const defIconClass: string = 'mx-3 w-10 h-10';
   const mdIconClass: string = 'md:mx-8 md:w-14 md:h-14';
-  const lgIconClass: string = 'lg:mx-16 lg:w-24 lg:h-24';
+  const lgIconClass: string = 'lg:mx-16 lg:w-20 lg:h-20';
 
   return <>
-    <div className="techLogos flex flex-row mt-20 overflow-hidden w-11/12 lg:w-4/5 opacity-15">
-      <div className="slider flex flex-row">
+    <div className={`techLogos  mt-20 ${logosClass}`}>
+      <div className={sliderClass}>
         {techLogos.map((Logo, index) =>
           (<Logo className={`${defIconClass} ${mdIconClass} ${lgIconClass}`} key={index}/>))}
       </div>
-      <div className="slider flex flex-row">
+      <div className={sliderClass}>
         {techLogos.map((Logo, index) =>
           (<Logo className={`${defIconClass} ${mdIconClass} ${lgIconClass}`} key={index}/>))}
       </div>
     </div>
-    <div className="toolLogos flex flex-row mt-12 overflow-hidden w-11/12 lg:w-4/5 opacity-15 justify-end">
-      <div className="slider flex flex-row">
+    <div className={`toolLogos mt-12 justify-end ${logosClass}`}>
+      <div className={sliderClass}>
         {toolLogos.map((Logo, index) =>
           (<Logo className={`${defIconClass} ${mdIconClass} ${lgIconClass}`} key={index}/>))}
       </div>
-      <div className="slider flex flex-row">
+      <div className={sliderClass}>
         {toolLogos.map((Logo, index) =>
           (<Logo className={`${defIconClass} ${mdIconClass} ${lgIconClass}`} key={index}/>))}
       </div>
