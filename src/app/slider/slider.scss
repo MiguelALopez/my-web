@@ -1,0 +1,36 @@
+@keyframes slide {
+  from {
+    transform: translatex(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.logos {
+  position: relative;
+
+  &:before, &:after {
+    position: absolute;
+    top: 0;
+    width: 10%;
+    height: 100%;
+    content: '';
+    z-index: 2;
+  }
+
+  &:before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), black);
+  }
+
+  &:after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), black);
+  }
+
+  .slider {
+    animation: 30s slide infinite linear;
+
+  }
+}
