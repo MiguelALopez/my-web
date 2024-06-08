@@ -1,34 +1,34 @@
-import type { Metadata } from "next";
-import {Inter, Poppins} from "next/font/google";
-import "./globals.css";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import type { Metadata } from 'next';
+import { Poppins } from 'next/font/google';
+import './globals.css';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/react';
 
 
 export const metadata: Metadata = {
-  title: "Miguel Lopez",
-  description: "💻Senior Software Engineer ⚛️ Front-End / FullStack",
+  title: 'Miguel Lopez',
+  description: '💻Senior Software Engineer ⚛️ Front-End / FullStack',
 };
 
 const popins_init = Poppins({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-poppins",
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-})
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-poppins',
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
+});
 
 export default function RootLayout({
-  children,
-}: Readonly<{
+                                     children,
+                                   }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
-      <body className={`${popins_init.variable}`}>
-        {children}
-        <SpeedInsights />
-        <Analytics />
-      </body>
+    <body className={`${popins_init.variable}`}>
+    {children}
+    <SpeedInsights/>
+    <Analytics/>
+    </body>
     </html>
   );
 }
