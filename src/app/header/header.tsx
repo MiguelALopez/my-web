@@ -1,8 +1,9 @@
 'use client';
-import { FaBars, FaGithub, FaLinkedinIn, FaRegFileAlt } from 'react-icons/fa';
+import { FaGithub, FaLinkedinIn, FaRegFileAlt } from 'react-icons/fa';
 import { IconType } from 'react-icons';
 import { useState } from 'react';
 import { HiMiniBars3 } from 'react-icons/hi2';
+import { MdClose } from 'react-icons/md';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,26 +22,31 @@ function Header() {
     },
   ];
 
+  const navDesktopClasses: string = 'flex sm:flex-row sm:static transition-all sm:w-auto sm:gap-0 sm:py-0 sm:pl-0 bg-black left-0';
+  const navMobileClasses: string = 'flex-col absolute w-full gap-10 py-6 pl-3';
+  const isOpenClasses: string = 'top-24 opacity-100';
+  const isCloseClasses: string = '-top-full opacity-0 -z-10 sm:opacity-100 sm:z-auto';
+  const Icon = isOpen ? MdClose : HiMiniBars3;
+
   return (
     <div className="sticky z-50 top-0 bg-black">
-      <nav className="container mx-auto py-5 flex flex-row justify-between px-5 z-50">
+      <nav className="container mx-auto py-5 flex flex-row justify-between px-5 z-100">
         <div className="flex items-center justify-between w-full h-16 gap-0 sm:gap-3">
           <div className="flex flex-row sm:hidden">
             <button type="button" aria-label="Menu" className="active:scale-95 transition-transform w-12
             h-12 rounded-full flex items-center justify-center">
-              <HiMiniBars3 className="size-6" onClick={() => setIsOpen(!isOpen)}/>
+              <Icon className="size-6" onClick={() => setIsOpen(!isOpen)}/>
             </button>
           </div>
-          {/*<div className="flex-wrap items-center justify-start flex-1 hidden  sm:flex"> ${(!isOpen && 'hidden') || 'flex'}*/}
           <div
-            className={`flex flex-col sm:flex-row absolute sm:static transition-all ${isOpen ? 'top-24 opacity-100' : '-top-full opacity-0 -z-10 sm:opacity-100 sm:z-auto'} left-0  w-full sm:w-auto bg-black gap-10 sm:gap-0 py-6`}>
+            className={`${isOpen ? isOpenClasses : isCloseClasses} ${navDesktopClasses} ${navMobileClasses}`}>
             {sections.map((section, i) => (
               <a key={i} href={section.redirect}>
                 <span className="mx-5 text-md font-medium" key={i}>{section.name}</span>
               </a>
             ))}
           </div>
-          <div className="flex flex-wrap items-center justify-end flex-1">
+          <div className="flex flex-wrap items-center justify-end flex-1 z-20">
             {icons.map((Object, i) => (
               <a className="mx-3" target="_blank" key={i} href={Object.redirect}>
                 <Object.icon size={25} key={i}/>
