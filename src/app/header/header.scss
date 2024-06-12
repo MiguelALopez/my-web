@@ -1,0 +1,5 @@
+.shadow-nav-dark {
+  --tw-shadow: 0 16px 32px -16px rgba(20, 20, 20, .5), 0 0 0 1px hsla(0, 0%, 100%, .05);
+  --tw-shadow-colored: 0 16px 32px -16px var(--tw-shadow-color), 0 0 0 1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}

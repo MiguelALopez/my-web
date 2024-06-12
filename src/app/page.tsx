@@ -22,6 +22,11 @@ export default function Home() {
           <path fill="white" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
         </svg>
       </main>
+      <section id="about" className="bg-white min-h-screen">
+        <div className="container mx-auto py-5">
+          <h1 className="text-black">Hola mundo</h1>
+        </div>
+      </section>
     </>
   );
 }
