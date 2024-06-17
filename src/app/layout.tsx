@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
-import './globals.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/react';
+import 'react-tooltip/dist/react-tooltip.css';
+import './globals.scss';
 
 
 export const metadata: Metadata = {
