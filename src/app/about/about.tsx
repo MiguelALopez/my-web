@@ -5,6 +5,11 @@ import { PiCopySimpleThin } from 'react-icons/pi';
 import { Tooltip } from 'react-tooltip';
 import './about.scss';
 import { toast } from 'react-toastify';
+import { IoCode } from 'react-icons/io5';
+import { FiCamera } from 'react-icons/fi';
+import { LuMountain } from 'react-icons/lu';
+import { BiLeaf } from 'react-icons/bi';
+import { MdOutlineLuggage } from 'react-icons/md';
 
 export default function About() {
   return (
@@ -81,9 +86,28 @@ export default function About() {
                   </div>
                 </div>
               </div>
-              {/*<div>*/}
-              {/*  <h2 className={'text-zinc-900 font-bold mt-3'}>Interests & Hobbies</h2>*/}
-              {/*</div>*/}
+              <div className={'flex flex-row flex-wrap xl:flex-nowrap text-zinc-900 gap-3 mt-5 font-medium'}>
+                <div className={'flex flex-row items-center bg-zinc-300 rounded-full px-3 py-1.5'}>
+                  <IoCode/>
+                  <p className={'ml-2'}>Coding</p>
+                </div>
+                <div className={'flex flex-row items-center bg-zinc-300 rounded-full px-3 py-1.5'}>
+                  <FiCamera/>
+                  <p className={'ml-2'}>Photography</p>
+                </div>
+                <div className={'flex flex-row items-center bg-zinc-300 rounded-full px-3 py-1.5'}>
+                  <LuMountain/>
+                  <p className={'ml-2'}>Hiking</p>
+                </div>
+                <div className={'flex flex-row items-center bg-zinc-300 rounded-full px-3 py-1.5'}>
+                  <BiLeaf/>
+                  <p className={'ml-2'}>Nature</p>
+                </div>
+                <div className={'flex flex-row items-center bg-zinc-300 rounded-full px-3 py-1.5'}>
+                  <MdOutlineLuggage/>
+                  <p className={'ml-2'}>Travel</p>
+                </div>
+              </div>
               <a className={'mt-10 block'} target="_blank"
                  href="https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:9d6e0ef2-05fc-4d43-973c-83027291a0d2">
                 <button className="bg-[#64748b] px-5 py-2.5 text-sm">DOWNLOAD CV</button>
