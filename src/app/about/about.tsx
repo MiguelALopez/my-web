@@ -4,6 +4,7 @@ import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { PiCopySimpleThin } from 'react-icons/pi';
 import { Tooltip } from 'react-tooltip';
 import './about.scss';
+import { toast } from 'react-toastify';
 
 export default function About() {
   return (
@@ -31,11 +32,11 @@ export default function About() {
             </div>
           </div>
           <div className="about-me lg:w-7/12 px-3.5 my-3.5">
-            <div className={'lg:pl-10'}>
+            <div className={'lg:pl-10 font-normal'}>
               <h3 className="text-3xl font-bold mb-2 text-zinc-950">I'M Miguel Lopez</h3>
               <p className="text-lg text-gray-600 mb-4">
-                A Senior <span className="text-[#64748b]">Front-end & Fullstack</span> based in{' '}
-                <span className="text-[#64748b]">Colombia</span>
+                A Senior <span className="text-[#64748b] font-medium">Front-end & Fullstack</span> based in{' '}
+                <span className="text-[#64748b] font-medium">Colombia</span>
               </p>
               <p className="text-gray-600 mb-4 text-[15px]">
                 I design and develop services for customers of all sizes, specializing in creating stylish, modern
@@ -78,9 +79,9 @@ export default function About() {
                   </div>
                 </div>
               </div>
-              {/*<div>*/}
-              {/*  <h2 className={'text-zinc-900 font-bold mt-3'}>Interests & Hobbies</h2>*/}
-              {/*</div>*/}
+              <div>
+                <h2 className={'text-zinc-900 font-bold mt-3'}>Interests & Hobbies</h2>
+              </div>
               <a className={'mt-10 block'} target="_blank"
                  href="https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:9d6e0ef2-05fc-4d43-973c-83027291a0d2">
                 <button className="bg-[#64748b] px-5 py-2.5 text-sm">DOWNLOAD CV</button>
@@ -89,11 +90,11 @@ export default function About() {
           </div>
         </div>
       </div>
-
     </div>
   );
 }
 
 function myFunction() {
+  toast('Copied to clipboard!');
   navigator.clipboard.writeText('miguel123dr@gmail.com');
 }

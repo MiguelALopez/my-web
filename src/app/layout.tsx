@@ -2,7 +2,9 @@ import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/react';
+import { ToastContainer } from 'react-toastify';
 import 'react-tooltip/dist/react-tooltip.css';
+import 'react-toastify/dist/ReactToastify.css';
 import './globals.scss';
 
 
@@ -29,6 +31,7 @@ export default function RootLayout({
     {children}
     <SpeedInsights/>
     <Analytics/>
+    <ToastContainer position="bottom-left" hideProgressBar={true} autoClose={2000}/>
     </body>
     </html>
   );
