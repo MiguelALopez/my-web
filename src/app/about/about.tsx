@@ -21,10 +21,12 @@ export default function About() {
                      className="w-full  h-full object-cover"/>
               <div className="absolute top-8 left-5 space-y-2 p-2 bg-white">
                 <a className="flex justify-center items-center bg-[#64748b] size-9"
+                   target="_blank"
                    href="https://www.linkedin.com/in/miguelalopezf/">
                   <FaLinkedinIn size="20"/>
                 </a>
                 <a className="flex justify-center items-center bg-[#64748b] size-9"
+                   target="_blank"
                    href="https://github.com/MiguelALopez">
                   <FaGithub size="20"/>
                 </a>
@@ -79,9 +81,9 @@ export default function About() {
                   </div>
                 </div>
               </div>
-              <div>
-                <h2 className={'text-zinc-900 font-bold mt-3'}>Interests & Hobbies</h2>
-              </div>
+              {/*<div>*/}
+              {/*  <h2 className={'text-zinc-900 font-bold mt-3'}>Interests & Hobbies</h2>*/}
+              {/*</div>*/}
               <a className={'mt-10 block'} target="_blank"
                  href="https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:9d6e0ef2-05fc-4d43-973c-83027291a0d2">
                 <button className="bg-[#64748b] px-5 py-2.5 text-sm">DOWNLOAD CV</button>
