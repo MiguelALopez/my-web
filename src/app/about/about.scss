@@ -1,0 +1,25 @@
+.about-me {
+  .about-item {
+    display: flex;
+    padding-top: 6px;
+    padding-bottom: 6px;
+
+    label {
+      margin: 0;
+      color: #090a0c;
+      font-weight: 500;
+      font-size: 14px;
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 90px;
+      flex: 0 0 90px;
+      border-right: 1px solid #c1c1c1;
+      max-width: 90px;
+    }
+
+    p {
+      margin-bottom: 0;
+      padding-left: 15px;
+      font-size: 14px;
+    }
+  }
+}

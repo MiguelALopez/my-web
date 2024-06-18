@@ -30,26 +30,26 @@ function Header() {
     },
   ];
 
-  const navDesktopClasses: string = 'flex sm:flex-row sm:static transition-all sm:w-auto sm:gap-0 sm:py-0 sm:pl-0 bg-black left-0';
+  const navDesktopClasses: string = 'flex sm:flex-row sm:static sm:w-auto sm:gap-0 sm:py-0 sm:pl-0 left-0';
   const navMobileClasses: string = 'flex-col absolute w-full gap-10 py-6 pl-3';
-  const isOpenClasses: string = 'top-24 opacity-100';
+  const isOpenClasses: string = 'top-16 opacity-100';
   const isCloseClasses: string = '-top-full opacity-0 -z-10 sm:opacity-100 sm:z-auto';
   const Icon = isOpen ? MdClose : HiMiniBars3;
 
   return (
     <div
-      className={`fixed z-50 w-full transition-shadow ${scroll && 'shadow-nav-dark'}`}>
-      <div className="sticky  top-0 bg-black">
+      className={`main-nav fixed z-50 w-full ${scroll && 'scrolled'}`}>
+      <div className={'sticky  top-0'}>
         <nav className="container mx-auto py-5 flex flex-row justify-between px-5 z-100">
-          <div className="flex items-center justify-between w-full h-16 gap-0 sm:gap-3">
+          <div className="flex items-center justify-between w-full gap-0 sm:gap-3">
             <div className="flex flex-row sm:hidden">
               <button type="button" aria-label="Menu" className="active:scale-95 transition-transform w-12
-            h-12 rounded-full flex items-center justify-center">
+            rounded-full flex items-center justify-center">
                 <Icon className="size-6" onClick={() => setIsOpen(!isOpen)}/>
               </button>
             </div>
             <div
-              className={`${isOpen ? isOpenClasses : isCloseClasses} ${navDesktopClasses} ${navMobileClasses}`}>
+              className={`nav-item ${isOpen ? isOpenClasses : isCloseClasses} ${navDesktopClasses} ${navMobileClasses}`}>
               {sections.map((section, i) => (
                 <a key={i} href={section.redirect}>
                   <span className="mx-5 text-md font-medium" key={i}>{section.name}</span>
