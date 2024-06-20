@@ -1,0 +1,59 @@
+@property --p {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+
+.skill-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: conic-gradient(#111827 var(--p), white 0);
+  -moz-transition: --p 1.25s ease-in-out;
+  -webkit-transition: --p 1.25s ease-in-out;
+  transition: --p 1.25s ease-in-out;
+
+  .skill {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 9999px;
+    transition: all 0.2s ease-in-out;
+    background: #64748b;
+    color: white;
+
+    .years {
+      opacity: 0;
+      position: absolute;
+      color: white;
+      transition: opacity 0.2s ease-in-out;
+      cursor: default;
+
+      h1 {
+        line-height: 20px;
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 12px;
+        line-height: 20px;
+      }
+    }
+
+
+    &:hover {
+      background: darken(#64748b, 70%);
+      color: darken(white, 70%);
+
+      .years {
+        opacity: 1;
+      }
+    }
+  }
+}

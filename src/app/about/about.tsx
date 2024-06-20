@@ -13,7 +13,7 @@ import { MdOutlineLuggage } from 'react-icons/md';
 
 export default function About() {
   return (
-    <div id="about" className="bg-[#eaedf2] py-16">
+    <div id="about" className="bg-[#eaedf2] py-24">
       <div className="container">
         <div className="section-title">
           <h2 className="text-4xl font-bold mb-2.5 relative z-10 pb-2.5 text-zinc-950">ABOUT ME</h2>
