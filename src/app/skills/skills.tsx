@@ -57,7 +57,7 @@ export default function Skills() {
           <h2 className="text-4xl font-bold mb-2.5 relative z-10 pb-2.5 text-zinc-950">MY SKILLS</h2>
           <p className="text-gray-600 mb-8">A SENIOR FRONT-END & FULLSTACK BASED IN COLOMBIA</p>
         </div>
-        <div className={'flex flex-row justify-between px-40 mt-20'}>
+        <div className={'flex flex-row flex-wrap justify-center lg:justify-between lg:px-40 mt-20 gap-8'}>
           {skills.map((skill, index) => (
             <div key={index} className={'flex flex-col justify-center items-center'}>
               <div ref={ref} className={'skill-box'} style={style(skill.years)}>
