@@ -66,7 +66,7 @@ export default function Skills() {
                 <svg className="svg-circle" viewBox="0 0 40 40">
                   <g stroke="none" strokeWidth="2" fill="none" fillRule="evenodd">
                     <circle className="circle" stroke="#111827"
-                            strokeDasharray={`${skill.years * 10} ${100 - skill.years * 10}`}
+                            strokeDasharray={isVisible ? `${skill.years * 10} ${100 - skill.years * 10}` : '0 100'}
                             strokeLinecap="round"
                             cx="20" cy="20" r="15.91549430918954"></circle>
                   </g>
