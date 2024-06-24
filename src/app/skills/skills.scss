@@ -1,21 +1,25 @@
-@property --p {
-  syntax: '<percentage>';
-  inherits: false;
-  initial-value: 0%;
-}
-
 .skill-box {
   display: flex;
   justify-content: center;
   align-items: center;
-  aspect-ratio: 1;
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background: conic-gradient(#111827 var(--p), white 0);
-  -moz-transition: --p 1.25s ease-in-out;
-  -webkit-transition: --p 1.25s ease-in-out;
-  transition: --p 1.25s ease-in-out;
+
+  .svg-circle {
+    @keyframes donut {
+      0% {
+        stroke-dasharray: 0, 100;
+      }
+    }
+
+    position: absolute;
+    transform: rotate(270deg);
+    width: 75px;
+    height: 75px;
+    z-index: 10;
+
+    .circle {
+      animation: donut 2s ease-in-out var(--v);
+    }
+  }
 
   .skill {
     width: 64px;
@@ -27,6 +31,7 @@
     transition: all 0.2s ease-in-out;
     background: #64748b;
     color: white;
+    z-index: 1;
 
     .years {
       opacity: 0;
@@ -37,17 +42,19 @@
 
       h1 {
         line-height: 20px;
-        font-size: 20px;
+        font-size: 18px;
+        font-weight: 700;
       }
 
       p {
-        font-size: 12px;
+        font-size: 14px;
         line-height: 20px;
       }
     }
+  }
 
-
-    &:hover {
+  &:hover {
+    .skill {
       background: darken(#64748b, 70%);
       color: darken(white, 70%);
 
