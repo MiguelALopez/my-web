@@ -22,12 +22,9 @@ function Header() {
     {name: 'Portfolio', redirect: '#portfolio'},
   ];
   const icons: { icon: IconType, redirect: string }[] = [
-    {icon: FaGithub, redirect: 'https://github.com/MiguelALopez'},
-    {icon: FaLinkedinIn, redirect: 'https://www.linkedin.com/in/miguelalopezf/'},
-    {
-      icon: FaRegFileAlt,
-      redirect: 'https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:9d6e0ef2-05fc-4d43-973c-83027291a0d2'
-    },
+    {icon: FaGithub, redirect: process.env.GITHUB_URL || ''},
+    {icon: FaLinkedinIn, redirect: process.env.LINKEDIN_URL || ''},
+    {icon: FaRegFileAlt, redirect: process.env.CV_URL || ''},
   ];
 
   const navDesktopClasses: string = 'flex sm:flex-row sm:static sm:w-auto sm:gap-0 sm:py-0 sm:pl-0 left-0';

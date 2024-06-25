@@ -27,12 +27,12 @@ export default function About() {
               <div className="absolute top-8 left-5 space-y-2 p-2 bg-white">
                 <a className="flex justify-center items-center bg-[#64748b] size-9"
                    target="_blank"
-                   href="https://www.linkedin.com/in/miguelalopezf/">
+                   href={process.env.NEXT_PUBLIC_LINKEDIN}>
                   <FaLinkedinIn size="20"/>
                 </a>
                 <a className="flex justify-center items-center bg-[#64748b] size-9"
                    target="_blank"
-                   href="https://github.com/MiguelALopez">
+                   href={process.env.NEXT_PUBLIC_GITHUB}>
                   <FaGithub size="20"/>
                 </a>
               </div>
@@ -109,7 +109,7 @@ export default function About() {
                 </div>
               </div>
               <a className={'mt-10 block'} target="_blank"
-                 href="https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:9d6e0ef2-05fc-4d43-973c-83027291a0d2">
+                 href={process.env.CV_URL || ''}>
                 <button className="bg-[#64748b] px-5 py-2.5 text-sm">DOWNLOAD CV</button>
               </a>
             </div>
