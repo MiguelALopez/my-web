@@ -4,6 +4,7 @@ import { IoLogoJavascript } from 'react-icons/io';
 import React, { RefObject, useEffect, useRef, useState } from 'react';
 import { BiLogoTypescript } from 'react-icons/bi';
 import './skills.scss';
+import { RiNextjsFill } from 'react-icons/ri';
 
 export function useOnScreen(ref: RefObject<HTMLElement>) {
 
@@ -38,12 +39,13 @@ export function useOnScreen(ref: RefObject<HTMLElement>) {
 export default function Skills() {
 
   const skills = [
-    {name: 'HTML5', icon: FaHtml5, years: 8,},
-    {name: 'CSS3', icon: FaCss3Alt, years: 8,},
-    {name: 'Javascript', icon: IoLogoJavascript, years: 8,},
-    {name: 'Typescript', icon: BiLogoTypescript, years: 6,},
-    {name: 'Angular', icon: FaAngular, years: 6,},
-    {name: 'React', icon: FaReact, years: 1,},
+    {name: 'HTML5', icon: FaHtml5, years: 8, level: 'Advanced'},
+    {name: 'CSS3', icon: FaCss3Alt, years: 8, level: 'Advanced'},
+    {name: 'Javascript', icon: IoLogoJavascript, years: 8, level: 'Advanced'},
+    {name: 'Typescript', icon: BiLogoTypescript, years: 6, level: 'Advanced'},
+    {name: 'Angular', icon: FaAngular, years: 6, level: 'Advanced'},
+    {name: 'React', icon: FaReact, years: 1, level: 'Intermediate'},
+    {name: 'NextJS', icon: RiNextjsFill, years: 1, level: 'Basic'},
   ];
 
   const ref = useRef<HTMLDivElement>(null);
@@ -59,9 +61,9 @@ export default function Skills() {
           <h2 className="text-4xl font-bold mb-2.5 relative z-10 pb-2.5 text-zinc-950">MY SKILLS</h2>
           <p className="text-gray-600 mb-8">A SENIOR FRONT-END & FULLSTACK BASED IN COLOMBIA</p>
         </div>
-        <div className={'flex flex-row flex-wrap justify-center lg:justify-between lg:px-40 mt-20 gap-8'}>
+        <div className={'flex flex-row flex-wrap justify-center lg:justify-between lg:px-28 mt-20 gap-8'}>
           {skills.map((skill, index) => (
-            <div key={index} className={'flex flex-col justify-center items-center'}>
+            <div key={index} className={'flex flex-col justify-center items-center min-w-24'}>
               <div ref={ref} className={'skill-box'} style={style(skill.years)}>
                 <svg className="svg-circle" viewBox="0 0 40 40">
                   <g stroke="none" strokeWidth="2" fill="none" fillRule="evenodd">
@@ -79,7 +81,8 @@ export default function Skills() {
                   </div>
                 </div>
               </div>
-              <p className={'text-center'}>{skill.name}</p>
+              <p className={'text-center font-semibold'}>{skill.name}</p>
+              <p className={'text-center text-zinc-500 text-xs'}>{skill.level}</p>
             </div>
           ))}
         </div>
