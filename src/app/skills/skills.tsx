@@ -18,7 +18,7 @@ export function useOnScreen(ref: RefObject<HTMLElement>) {
       {
         root: null, // viewport
         rootMargin: '0px', // no margin
-        threshold: 0.5, // 50% of target visible
+        threshold: 0.1, // 50% of target visible
       }
     );
 

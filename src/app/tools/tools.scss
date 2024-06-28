@@ -1,0 +1,44 @@
+.skill-bar {
+  background-color: #cbd5e1;
+  border-radius: 5px;
+  @keyframes bar {
+    0% {
+      width: 0;
+    }
+  }
+
+  .skill-bar-in {
+    transition: ease all 0.55s;
+    height: 5px;
+    position: relative;
+    border-radius: 5px;
+    animation: bar 0.8s ease-in-out var(--v);
+    //min-width: 130px;
+
+    span {
+      position: absolute;
+      right: 0;
+      top: -30px;
+      font-size: 14px;
+    }
+  }
+}
+
+.skill-cake {
+  //&::before {
+  //  content: '';
+  //  position: absolute;
+  //  width: 1px;
+  //  height: 100%;
+  //  background: red;
+  //}
+  //
+  //&::after {
+  //  content: '';
+  //  position: absolute;
+  //  width: 100%;
+  //  height: 1px;
+  //  background: red;
+  //}
+
+}
