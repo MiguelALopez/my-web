@@ -63,6 +63,7 @@ export default function Tools() {
                 <div className="skill-bar">
                   <div className="skill-bar-in bg-[#64748b]"
                        role="progressbar"
+                       aria-label={tool.name}
                        aria-valuenow={92}
                        aria-valuemin={0}
                        aria-valuemax={100}
