@@ -1,5 +1,5 @@
 'use client';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useOnScreen } from '@/app/skills/skills';
 import { PieChart } from 'react-minimal-pie-chart';
 import './tools.scss';
@@ -7,6 +7,9 @@ import type { Data } from 'react-minimal-pie-chart/types/commonTypes';
 import { Tooltip } from 'react-tooltip';
 
 export default function Tools() {
+  const [tooltip, setTooltip] = useState({x: 0, y: 0, isOpen: false, index: -1, type: ''});
+  const [skillSelected, setSkillSelected] = useState(-1);
+
   //Data for bar chart
   const tools = [
     {name: 'Github', level: 9},
@@ -19,8 +22,8 @@ export default function Tools() {
 
   //Data for pie chart
   const skills: Data<any> = [
-    {id: 'front-end', title: 'Frontend', label: 'Frontend', value: 69, color: '#E38627'},
-    {id: 'fullstack', title: 'Fullstack', label: 'Fullstack', value: 31, color: '#6A2135'},
+    {id: 'front-end', title: 'Frontend', label: 'Frontend', value: 70, color: '#E38627'},
+    {id: 'fullstack', title: 'Fullstack', label: 'Fullstack', value: 32, color: '#6A2135'},
   ];
 
   const frameworks: Data<any> = [
@@ -48,6 +51,7 @@ export default function Tools() {
     ['--v']: `${isVisible ? 'running' : 'initial'}`,
   }) as React.CSSProperties;
   const shadowStyle: string = 'drop-shadow(1px 1.5px 0.8px rgb(0 0 0 / 0.25))';
+
   return (
     <div ref={ref} id={'tools'} className={'bg-[#eaedf2] py-24 text-zinc-900'}>
       <div className={'container'}>
@@ -76,6 +80,7 @@ export default function Tools() {
           <div className={'flex-1 -mt-16 lg:-mt-32'}>
             <div className={'relative skill-cake flex items-center justify-center'}>
               <PieChart
+                className={'z-10'}
                 data={skills}
                 animate={true}
                 animationDuration={1.5 * 1000}
@@ -84,9 +89,10 @@ export default function Tools() {
                 lineWidth={20}
                 segmentsStyle={() => ({filter: shadowStyle})}
                 radius={45}
+
               />
               <PieChart
-                className={'absolute w-9/12 p-1'}
+                className={'absolute w-9/12 p-1 z-10'}
                 data={frameworks}
                 animate={true}
                 animationDuration={1.5 * 1000}
@@ -95,9 +101,15 @@ export default function Tools() {
                 lineWidth={25}
                 segmentsStyle={() => ({filter: shadowStyle})}
                 radius={45}
+                onMouseOver={(event, dataIndex) => {
+                  setTooltip({x: event.clientX, y: event.clientY, isOpen: true, index: dataIndex, type: 'framework'});
+                }}
+                onMouseOut={() => {
+                  setTooltip({...tooltip, isOpen: false});
+                }}
               />
               <PieChart
-                className={'absolute w-6/12 p-1'}
+                className={'absolute w-6/12 h-3/6 p-1 z-20'}
                 data={languages}
                 animate={true}
                 animationDuration={1.5 * 1000}
@@ -106,8 +118,22 @@ export default function Tools() {
                 lineWidth={35}
                 segmentsStyle={() => ({filter: shadowStyle})}
                 radius={45}
+                onMouseOver={(event, dataIndex) => {
+                  setTooltip({x: event.clientX, y: event.clientY, isOpen: true, index: dataIndex, type: 'languages'});
+                }}
+                onMouseOut={() => {
+                  setTooltip({...tooltip, isOpen: false});
+                }}
               />
-              <Tooltip id="label" noArrow={true} className="!px-1.5 !py-1 !text-xs z-10"/>
+              <Tooltip id="label"
+                       noArrow={true}
+                       className="!text-xs z-50"
+                       position={tooltip}
+                       isOpen={tooltip.isOpen}>
+                <div>
+                  <h1>{tooltip.type === 'framework' ? frameworks[tooltip.index]?.title : languages[tooltip.index]?.title}</h1>
+                </div>
+              </Tooltip>
             </div>
             <div
               className={'flex flex-row flex-wrap gap-4 justify-around  font-semibold mt-5 text-sm'}>
