@@ -8,7 +8,6 @@ import { Tooltip } from 'react-tooltip';
 
 export default function Tools() {
   const [tooltip, setTooltip] = useState({x: 0, y: 0, isOpen: false, index: -1, type: ''});
-  const [skillSelected, setSkillSelected] = useState(-1);
 
   //Data for bar chart
   const tools = [
@@ -16,7 +15,7 @@ export default function Tools() {
     {name: 'Unix shell', level: 6},
     {name: 'Jenkins', level: 4},
     {name: 'Vercel', level: 3},
-    {name: 'Wordpress', level: 3},
+    {name: 'Wordpress', level: 4},
     {name: 'Open AI', level: 5},
   ];
 
@@ -46,7 +45,7 @@ export default function Tools() {
 
   const ref = useRef<HTMLDivElement>(null);
   const isVisible: boolean = useOnScreen(ref);
-  const style = (years: number) => ({
+  const style = (years: number = 0) => ({
     ['--p']: `${isVisible ? years * 10 : 10}`,
     ['--v']: `${isVisible ? 'running' : 'initial'}`,
   }) as React.CSSProperties;
@@ -63,7 +62,7 @@ export default function Tools() {
           <div className={'flex flex-col gap-7 flex-1'}>
             {tools.map((tool) => (
               <div key={tool.name} style={style(tool.level)}>
-                <h2 className={'mb-2.5 font-medium'}>{tool.name}</h2>
+                <h2 className={'mb-2.5 font-medium text-sm sm:text-base '}>{tool.name}</h2>
                 <div className="skill-bar">
                   <div className="skill-bar-in bg-[#64748b]"
                        role="progressbar"
@@ -78,62 +77,72 @@ export default function Tools() {
             ))}
           </div>
           <div className={'flex-1 -mt-16 lg:-mt-32'}>
-            <div className={'relative skill-cake flex items-center justify-center'}>
-              <PieChart
-                className={'z-10'}
-                data={skills}
-                animate={true}
-                animationDuration={1.5 * 1000}
-                reveal={isVisible ? 100 : 0}
-                paddingAngle={5}
-                lineWidth={20}
-                segmentsStyle={() => ({filter: shadowStyle})}
-                radius={45}
+            <div style={style()} className={'relative skill-cake flex items-center justify-center'}>
+              <div className={'tech-label back-label top-6'}>
+                <span className={'absolute font-semibold right-0 text-sm sm:text-base'}>Fullstack</span>
+                <div className={'line-front invisible sm:visible'}></div>
+              </div>
+              <div className={'tech-label front-label bottom-10'}>
+                <span className={'absolute font-semibold text-sm sm:text-base'}>Frontend</span>
+                <div className={'line-front invisible sm:visible'}></div>
+              </div>
+              <div className={'relative flex items-center justify-center sm:w-full w-10/12'}>
+                <PieChart
+                  className={'z-10'}
+                  data={skills}
+                  animate={true}
+                  animationDuration={1.5 * 1000}
+                  reveal={isVisible ? 100 : 0}
+                  paddingAngle={5}
+                  lineWidth={20}
+                  segmentsStyle={() => ({filter: shadowStyle})}
+                  radius={45}
 
-              />
-              <PieChart
-                className={'absolute w-9/12 p-1 z-10'}
-                data={frameworks}
-                animate={true}
-                animationDuration={1.5 * 1000}
-                reveal={isVisible ? 100 : 0}
-                paddingAngle={5}
-                lineWidth={25}
-                segmentsStyle={() => ({filter: shadowStyle})}
-                radius={45}
-                onMouseOver={(event, dataIndex) => {
-                  setTooltip({x: event.clientX, y: event.clientY, isOpen: true, index: dataIndex, type: 'framework'});
-                }}
-                onMouseOut={() => {
-                  setTooltip({...tooltip, isOpen: false});
-                }}
-              />
-              <PieChart
-                className={'absolute w-6/12 h-3/6 p-1 z-20'}
-                data={languages}
-                animate={true}
-                animationDuration={1.5 * 1000}
-                reveal={isVisible ? 100 : 0}
-                paddingAngle={5}
-                lineWidth={35}
-                segmentsStyle={() => ({filter: shadowStyle})}
-                radius={45}
-                onMouseOver={(event, dataIndex) => {
-                  setTooltip({x: event.clientX, y: event.clientY, isOpen: true, index: dataIndex, type: 'languages'});
-                }}
-                onMouseOut={() => {
-                  setTooltip({...tooltip, isOpen: false});
-                }}
-              />
-              <Tooltip id="label"
-                       noArrow={true}
-                       className="!text-xs z-50"
-                       position={tooltip}
-                       isOpen={tooltip.isOpen}>
-                <div>
-                  <h1>{tooltip.type === 'framework' ? frameworks[tooltip.index]?.title : languages[tooltip.index]?.title}</h1>
-                </div>
-              </Tooltip>
+                />
+                <PieChart
+                  className={'absolute w-9/12 p-1 z-10'}
+                  data={frameworks}
+                  animate={true}
+                  animationDuration={1.5 * 1000}
+                  reveal={isVisible ? 100 : 0}
+                  paddingAngle={5}
+                  lineWidth={25}
+                  segmentsStyle={() => ({filter: shadowStyle})}
+                  radius={45}
+                  onMouseOver={(event, dataIndex) => {
+                    setTooltip({x: event.clientX, y: event.clientY, isOpen: true, index: dataIndex, type: 'framework'});
+                  }}
+                  onMouseOut={() => {
+                    setTooltip({...tooltip, isOpen: false});
+                  }}
+                />
+                <PieChart
+                  className={'absolute w-6/12 h-3/6 p-1 z-20'}
+                  data={languages}
+                  animate={true}
+                  animationDuration={1.5 * 1000}
+                  reveal={isVisible ? 100 : 0}
+                  paddingAngle={5}
+                  lineWidth={35}
+                  segmentsStyle={() => ({filter: shadowStyle})}
+                  radius={45}
+                  onMouseOver={(event, dataIndex) => {
+                    setTooltip({x: event.clientX, y: event.clientY, isOpen: true, index: dataIndex, type: 'languages'});
+                  }}
+                  onMouseOut={() => {
+                    setTooltip({...tooltip, isOpen: false});
+                  }}
+                />
+                <Tooltip id="label"
+                         noArrow={true}
+                         className="!text-xs z-50"
+                         position={tooltip}
+                         isOpen={tooltip.isOpen}>
+                  <div>
+                    <h1>{tooltip.type === 'framework' ? frameworks[tooltip.index]?.title : languages[tooltip.index]?.title}</h1>
+                  </div>
+                </Tooltip>
+              </div>
             </div>
             <div
               className={'flex flex-row flex-wrap gap-4 justify-around  font-semibold mt-5 text-sm'}>
