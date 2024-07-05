@@ -37,7 +37,6 @@ export function useOnScreen(ref: RefObject<HTMLElement>) {
 }
 
 export default function Skills() {
-
   const skills = [
     {name: 'HTML5', icon: FaHtml5, years: 8, level: 'Advanced'},
     {name: 'CSS3', icon: FaCss3Alt, years: 8, level: 'Advanced'},
