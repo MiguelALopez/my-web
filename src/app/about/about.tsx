@@ -27,12 +27,12 @@ export default function About() {
               <div className="absolute top-8 left-5 space-y-2 p-2 bg-white">
                 <a className="flex justify-center items-center bg-[#64748b] size-9"
                    target="_blank"
-                   href={process.env.NEXT_PUBLIC_LINKEDIN}>
+                   href={process.env.LINKEDIN_URL}>
                   <FaLinkedinIn size="20"/>
                 </a>
                 <a className="flex justify-center items-center bg-[#64748b] size-9"
                    target="_blank"
-                   href={process.env.NEXT_PUBLIC_GITHUB}>
+                   href={process.env.GITHUB_URL}>
                   <FaGithub size="20"/>
                 </a>
               </div>
