@@ -17,10 +17,10 @@ function Header() {
   }, []);
 
   const sections: { name: string, redirect: string }[] = [
-    {name: 'Home', redirect: '#home'},
-    {name: 'About', redirect: '#about'},
-    {name: 'Skills', redirect: '#skills'},
-    {name: 'Portfolio', redirect: '#portfolio'},
+    {name: 'Home', redirect: '/#home'},
+    {name: 'About', redirect: '/#about'},
+    {name: 'Skills', redirect: '/#skills'},
+    {name: 'Portfolio', redirect: '/#portfolio'},
   ];
   const icons: { icon: IconType, redirect: string }[] = [
     {icon: FaGithub, redirect: process.env.GITHUB_URL || ''},
