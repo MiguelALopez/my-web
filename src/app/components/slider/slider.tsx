@@ -1,19 +1,11 @@
 import {
-  FaAngular,
-  FaCss3Alt,
-  FaGitAlt,
-  FaGithub,
-  FaHtml5,
-  FaJenkins,
-  FaLinux,
-  FaNodeJs,
-  FaReact
+  FaAngular, FaCss3Alt, FaGitAlt, FaGithub, FaHtml5, FaJenkins, FaLinux, FaNodeJs, FaReact
 } from 'react-icons/fa';
 import { RiNextjsFill } from 'react-icons/ri';
 import { SiHostinger, SiJavascript, SiNgrx, SiTypescript, SiVercel } from 'react-icons/si';
-import './slider.scss';
 import { AiOutlineOpenAI } from 'react-icons/ai';
 import { BiLogoPostgresql } from 'react-icons/bi';
+import './slider.scss';
 
 export default function Slider() {
   const techLogos = [

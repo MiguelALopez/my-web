@@ -1,6 +1,6 @@
 'use client';
 import { useRef, useState } from 'react';
-import { useOnScreen } from '@/app/skills/skills';
+import { useOnScreen } from '@/app/components/skills/skills';
 import { PieChart } from 'react-minimal-pie-chart';
 import './tools.scss';
 import type { Data } from 'react-minimal-pie-chart/types/commonTypes';

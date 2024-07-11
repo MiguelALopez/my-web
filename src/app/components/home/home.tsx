@@ -1,4 +1,4 @@
-import Slider from '@/app/slider/slider';
+import Slider from '@/app/components/slider/slider';
 
 const Home = () => {
   const chipClass: string =
