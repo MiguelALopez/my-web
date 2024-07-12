@@ -1,15 +1,12 @@
-'use client';
 import Image from 'next/image';
+import PasteIcon from '@/app/components/paste-icon';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
-import { PiCopySimpleThin } from 'react-icons/pi';
-import { Tooltip } from 'react-tooltip';
-import './about.scss';
-import { toast } from 'react-toastify';
 import { IoCode } from 'react-icons/io5';
 import { FiCamera } from 'react-icons/fi';
 import { LuMountain } from 'react-icons/lu';
 import { BiLeaf } from 'react-icons/bi';
 import { MdOutlineLuggage } from 'react-icons/md';
+import './about.scss';
 
 export default function About() {
   return (
@@ -72,17 +69,7 @@ export default function About() {
                       <p
                         className={'basis-7/12 text-zinc-500'}>miguel123dr@gmail.com</p>
                     </a>
-                    <a className="cursor-pointer"
-                       data-tooltip-id="rt-email"
-                       data-tooltip-content="Copy"
-                       data-tooltip-place="right"
-                       data-tooltip-offset={-5}
-                       onClick={() => myFunction()}>
-                      <PiCopySimpleThin
-                        className="mx-2.5"
-                        color="#64748b" size="23"/>
-                    </a>
-                    <Tooltip id="rt-email" noArrow={true} className="!px-1.5 !py-1 !text-xs"/>
+                    <PasteIcon/>
                   </div>
                 </div>
               </div>
@@ -120,7 +107,4 @@ export default function About() {
   );
 }
 
-function myFunction() {
-  toast('Copied to clipboard!');
-  navigator.clipboard.writeText('miguel123dr@gmail.com');
-}
+

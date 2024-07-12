@@ -49,8 +49,7 @@ export default function Skills() {
 
   const ref = useRef<HTMLDivElement>(null);
   const isVisible = useOnScreen(ref);
-  const style = (years: number) => ({
-    ['--p']: `${isVisible ? years * 10 : 10}`,
+  const style = () => ({
     ['--v']: `${isVisible ? 'running' : 'initial'}`,
   }) as React.CSSProperties;
   return (
@@ -63,7 +62,7 @@ export default function Skills() {
         <div className={'flex flex-row flex-wrap justify-center lg:justify-between lg:px-28 mt-20 gap-8'}>
           {skills.map((skill, index) => (
             <div key={index} className={'flex flex-col justify-center items-center min-w-24'}>
-              <div ref={ref} className={'skill-box'} style={style(skill.years)}>
+              <div ref={ref} className={'skill-box'} style={style()}>
                 <svg className="svg-circle" viewBox="0 0 40 40">
                   <g stroke="none" strokeWidth="2" fill="none" fillRule="evenodd">
                     <circle className="circle" stroke="#111827"
