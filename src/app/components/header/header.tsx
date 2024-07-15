@@ -6,7 +6,7 @@ import { HiMiniBars3 } from 'react-icons/hi2';
 import { MdClose } from 'react-icons/md';
 import './header.scss';
 
-function Header() {
+export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scroll, setScroll] = useState(false);
 
@@ -68,4 +68,3 @@ function Header() {
   );
 }
 
-export default Header;

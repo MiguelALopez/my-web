@@ -2,11 +2,11 @@
 import { useRef, useState } from 'react';
 import { useOnScreen } from '@/app/components/skills/skills';
 import { PieChart } from 'react-minimal-pie-chart';
-import './tools.scss';
 import type { Data } from 'react-minimal-pie-chart/types/commonTypes';
 import { Tooltip } from 'react-tooltip';
+import './tools.scss';
 
-export default function Tools() {
+export function Tools() {
   const [tooltip, setTooltip] = useState({x: 0, y: 0, isOpen: false, index: -1, type: ''});
 
   //Data for bar chart
@@ -45,8 +45,7 @@ export default function Tools() {
 
   const ref = useRef<HTMLDivElement>(null);
   const isVisible: boolean = useOnScreen(ref);
-  const style = (years: number = 0) => ({
-    ['--p']: `${isVisible ? years * 10 : 10}`,
+  const style = () => ({
     ['--v']: `${isVisible ? 'running' : 'initial'}`,
   }) as React.CSSProperties;
   const shadowStyle: string = 'drop-shadow(1px 1.5px 0.8px rgb(0 0 0 / 0.25))';
@@ -61,7 +60,7 @@ export default function Tools() {
         <div className={'flex flex-col lg:flex-row gap-32'}>
           <div className={'flex flex-col gap-7 flex-1'}>
             {tools.map((tool) => (
-              <div key={tool.name} style={style(tool.level)}>
+              <div key={tool.name} style={style()}>
                 <h2 className={'mb-2.5 font-medium text-sm sm:text-base '}>{tool.name}</h2>
                 <div className="skill-bar">
                   <div className="skill-bar-in bg-[#64748b]"

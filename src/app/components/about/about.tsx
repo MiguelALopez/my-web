@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import PasteIcon from '@/app/components/paste-icon';
+import { PasteIcon } from '@/app/components/paste-icon';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { IoCode } from 'react-icons/io5';
 import { FiCamera } from 'react-icons/fi';
@@ -8,7 +8,7 @@ import { BiLeaf } from 'react-icons/bi';
 import { MdOutlineLuggage } from 'react-icons/md';
 import './about.scss';
 
-export default function About() {
+export function About() {
   return (
     <div id="about" className="bg-[#eaedf2] py-24">
       <div className="container">

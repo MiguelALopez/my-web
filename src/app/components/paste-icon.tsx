@@ -3,7 +3,7 @@ import { PiCopySimpleThin } from 'react-icons/pi';
 import { Tooltip } from 'react-tooltip';
 import { toast } from 'react-toastify';
 
-export default function PasteIcon() {
+export function PasteIcon() {
   return (
     <><a className="cursor-pointer"
          data-tooltip-id="rt-email"

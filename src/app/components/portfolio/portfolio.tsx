@@ -1,22 +1,30 @@
-'use client';
+import { IconType } from 'react-icons';
 import {
-  FaAngular,
-  FaCss3Alt,
-  FaHtml5, FaPython,
-  FaRegEye,
-  FaRegEyeSlash,
-  FaUnity,
-  FaWordpressSimple
+  FaAngular, FaCss3Alt, FaHtml5, FaPython, FaRegEye, FaRegEyeSlash, FaUnity, FaWordpressSimple
 } from 'react-icons/fa';
 import { IoLogoJavascript } from 'react-icons/io';
 import { BiLogoTypescript } from 'react-icons/bi';
 import { SiCsharp, SiDjango } from 'react-icons/si';
-import { Tooltip } from 'react-tooltip';
 import Image from 'next/image';
+import { NextTooltip } from '@/app/components/next-tooltip';
 import './portfolio.scss';
 
-export default function Portfolio() {
-  const portfolio = [
+export interface portfolio {
+  name: string
+  key: string
+  image: string
+  visible: boolean
+  technologies: technology[]
+  description: string
+}
+
+export interface technology {
+  name: string
+  icon: IconType
+}
+
+export function Portfolio() {
+  const portfolio: portfolio[] = [
     {
       name: 'Playtherapy',
       key: 'playtherapy',
@@ -107,7 +115,7 @@ export default function Portfolio() {
                         data-tooltip-place="bottom"
                         data-tooltip-offset={5}/>
                     ))}
-                    <Tooltip id="rt-tooltip" noArrow={true} className="!px-1.5 !py-1 !text-xs"/>
+                    <NextTooltip tooltipId={'rt-tooltip'} className={'!px-1.5 !py-1 !text-xs'}/>
                   </div>
                 </div>
               </div>

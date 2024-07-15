@@ -1,6 +1,6 @@
 import Slider from '@/app/components/slider/slider';
 
-const Home = () => {
+export const Home = () => {
   const chipClass: string =
     'bg-white/10 rounded-full px-5 py-1.5 text-xs font-normal uppercase tracking-widest';
   return (
@@ -20,4 +20,3 @@ const Home = () => {
     </main>
   );
 };
-export default Home;
